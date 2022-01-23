@@ -1,8 +1,31 @@
 package com.example.rest_api.student;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 
+
+@Entity
+@Table
 public class Student {
+
+
+    @Id
+    @SequenceGenerator(
+            name = "student_sequence",
+            sequenceName = "student_sequence",
+            allocationSize = 1
+    )
+
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "student_sequence"
+    )
+    private Long id;
+    private String name;
+    private String email;
+    private int age;
+    private LocalDate dob;
+
 
     public Student() {
     }
@@ -15,7 +38,7 @@ public class Student {
         this.dob = dob;
     }
 
-    private Long id;
+
 
     public Student(String name, String email, int age, LocalDate dob) {
         this.name = name;
@@ -63,11 +86,6 @@ public class Student {
     public void setDob(LocalDate dob) {
         this.dob = dob;
     }
-
-    private String name;
-    private String email;
-    private int age;
-    private LocalDate dob;
 
 
 }
