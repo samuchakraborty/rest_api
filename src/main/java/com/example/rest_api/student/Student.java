@@ -10,7 +10,16 @@ import java.time.Period;
 public class Student {
 
 
-
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", age=" + age +
+                ", dob=" + dob +
+                '}';
+    }
 
     @Id
     @SequenceGenerator(
